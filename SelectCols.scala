@@ -57,9 +57,9 @@ countryDim.select(columns.map(m => col(m)): _*)
 val listCols = List("country_iso_code", "wb_country_code", "country_name", "country_long_name")
 countryDim.select(listCols.map(m => col(m)): _*).show(5, false)
 
- /**
-  * 4. Select First N Columns
-  */
+/**
+ * 4. Select First N Columns
+ */
 countryDim.select(countryDim.columns.slice(0, 3).map(m => col(m)): _*).show(5,false)
 
 /**
@@ -72,15 +72,15 @@ countryDim.select(countryDim.columns(3)).show(5, false)
 */
 countryDim.select(countryDim.colRegex("`^.*name*`")).show(5, false)
 
- /**
-  * 7. Select Columns Starts or Ends With
-  */
-  countryDim.select(countryDim.columns.filter(f => f.startsWith("country")).map(m => col(m)):_*).show(5, false)
-  countryDim.select(countryDim.columns.filter(f => f.endsWith("name")).map(m => col(m)):_*).show(5, false)
+/**
+ * 7. Select Columns Starts or Ends With
+ */
+countryDim.select(countryDim.columns.filter(f => f.startsWith("country")).map(m => col(m)):_*).show(5, false)
+countryDim.select(countryDim.columns.filter(f => f.endsWith("name")).map(m => col(m)):_*).show(5, false)
 
-  /**
-  * 8. Select Nested Struct Columns - StructType
-  */
+/**
+ * 8. Select Nested Struct Columns - StructType
+ */
 
 
 
