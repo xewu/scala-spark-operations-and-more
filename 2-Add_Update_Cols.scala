@@ -56,3 +56,13 @@ countryDim.withColumnRenamed("country_iso_code", "country_iso_2char_code").show(
 countryDim.drop("wb_country_code").show(5, false)
 
 // 8. Split Column into Multiple Columns
+val newDF = countryDim.map(f => {
+    val reginSplit = f.getAs[String](3).split(" ")
+    val incomeGroupSplit = f.getAs[String](4).split(" ")
+    (reginSplit(0), reginSplit(1) incomeGroupSplit(0))
+}
+    )
+newDF.show(5, false)
+
+val finalDf = newDF.toDF("region_i", "region_ii", "income")
+finalDf.show(5, false)
